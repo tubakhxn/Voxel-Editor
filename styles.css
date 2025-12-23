@@ -1,0 +1,132 @@
+:root {
+  --bg-dark: #0b0b0b;
+  --hud-bg: rgba(5, 5, 5, 0.72);
+  --hud-border: rgba(108, 224, 232, 0.8);
+  --aqua: #6dd9e1;
+  --lime: #c8f88d;
+  --text-primary: #f3f3f3;
+  --teal-mist: rgba(96, 199, 220, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 20%, transparent 55%);
+}
+
+body::after {
+  background: radial-gradient(circle at 30% 20%, rgba(109, 215, 224, 0.25), transparent 45%),
+    radial-gradient(circle at 70% 30%, rgba(120, 232, 204, 0.2), transparent 55%), var(--teal-mist);
+}
+
+.hero-caption {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: 0.06em;
+  z-index: 4;
+  padding: 1.4rem 0 1rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.85) 65%, transparent 100%);
+}
+
+#scene-container {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.webcam-feed {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: contrast(1.15) saturate(1.05);
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
+.hand-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hud-panel {
+  position: absolute;
+  top: 6rem;
+  left: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 4;
+}
+
+.hud-item {
+  width: 120px;
+  padding: 0.9rem 1rem;
+  background: var(--hud-bg);
+  border: 1px solid var(--hud-border);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 18px rgba(109, 215, 224, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-transform: uppercase;
+}
+
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(109, 215, 224, 0.85);
+}
+
+.value {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--aqua);
+}
+
+@media (max-width: 768px) {
+  .hud-panel {
+    left: 50%;
+    top: auto;
+    bottom: 2rem;
+    transform: translateX(-50%);
+  }
+
+  .hud-item {
+    width: 110px;
+  }
+
+  .hero-caption {
+    padding: 0 1.5rem;
+  }
+}

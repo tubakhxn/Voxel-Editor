@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voxel Hand Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="hero-caption">
+      <p>i built a voxel editor with live hand tracking (using mediapipe, threejs)</p>
+    </div>
+
+    <div id="scene-container"></div>
+    <video id="webcam" class="webcam-feed" autoplay playsinline muted></video>
+    <canvas id="hand-overlay" class="hand-overlay"></canvas>
+
+    <div class="hud-panel">
+      <div class="hud-item">
+        <span class="label">EDITING</span>
+        <span id="modeLabel" class="value">IDLE</span>
+      </div>
+      <div class="hud-item">
+        <span class="label">BLOCKS</span>
+        <span id="blockCount" class="value">0</span>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.4/camera_utils.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
