@@ -1,4 +1,4 @@
-#voxel editor with live hand gestures
+# Voxel editor with live hand gestures
 
 Built by **tubakhxn**, this project recreates the viral "schach" demo: a turquoise voxel art tool that floats over your webcam feed and reacts to real hand gestures. Two targets are included:
 
@@ -60,4 +60,5 @@ Ideas worth exploring:
 - `requirements.txt` — Minimal Python dependencies (opencv-python, mediapipe, numpy).
 
 Feel free to tag @tubakhxn when you post your recreation—would love to see the hand sculptures you make.
+
 
